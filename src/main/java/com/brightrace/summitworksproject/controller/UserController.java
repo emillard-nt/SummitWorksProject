@@ -34,6 +34,18 @@ public class UserController {
 
     }
 
+    @GetMapping("/users/email/{email}")
+    public ResponseEntity<User> get(@PathVariable String email) {
+
+        try {
+            User user = userService.getByEmail(email);
+            return new ResponseEntity<User>(user, HttpStatus.OK);
+        } catch (NoSuchElementException e) {
+            return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+        }
+
+    }
+
     @PostMapping("/users")
     public void add(@RequestBody User user) {
         userService.save(user);
