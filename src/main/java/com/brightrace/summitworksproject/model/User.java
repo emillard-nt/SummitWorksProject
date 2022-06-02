@@ -19,6 +19,15 @@ public class User {
         this.id = 0 ;
     }
 
+    public User(Integer id, String firstName, String lastName, String email, String password, String userType) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.userType = userType;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() { return id; }

@@ -39,17 +39,16 @@ public class UserService {
 
     }
 
-    public User getByUsername(String username) {
+    public User getByEmail(String email) {
 
         ArrayList<User> allUsers = new ArrayList<>(repository.findAll());
 
         for (int i = 0; i < allUsers.size(); i++) {
-            if (allUsers.get(i).getEmail().equals(username)) {
+            if (allUsers.get(i).getEmail().equals(email)) {
                 return allUsers.get(i);
             }
         }
 
-        System.out.println("UserService[0]");
         return null;
 
     }

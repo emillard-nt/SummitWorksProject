@@ -13,6 +13,20 @@ public class Donation {
     private String date;
     private Double amount;
 
+    public Donation() {
+        this.id = 0 ;
+    }
+
+    public Donation(Integer id, Integer userId, Integer donationTypeId, String firstName, String lastName, String date, Double amount) {
+        this.id = id;
+        this.userId = userId;
+        this.donationTypeId = donationTypeId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.date = date;
+        this.amount = amount;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() { return id; }

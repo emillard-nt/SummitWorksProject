@@ -12,6 +12,16 @@ public class DonationType {
     private String name;
     boolean active;
 
+    public DonationType() {
+        this.id = 0 ;
+    }
+
+    public DonationType(Integer id, String name, boolean active) {
+        this.id = id;
+        this.name = name;
+        this.active = active;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() { return id; }

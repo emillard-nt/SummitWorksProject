@@ -18,12 +18,11 @@ public class JwtUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        com.brightrace.summitworksproject.model.User user = userService.getByUsername(username);
+        com.brightrace.summitworksproject.model.User user = userService.getByEmail(username);
 
         if (user != null) {
             return new User(user.getEmail(), user.getPassword(), new ArrayList<>());
         } else {
-            System.out.println("Error Log: JwtUserDetailsService.class (1)");
             throw new UsernameNotFoundException("User not found with username: " + username);
         }
 
